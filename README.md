@@ -2,7 +2,7 @@
 
 **Análisis de un experimento real con 588.101 usuarios para decidir si una campaña de anuncios aumenta las compras, cuántas compras se le deben de verdad y para quién funciona.**
 
-[![CI](https://github.com/alvarodc093-pixel/Marketing-AB-Test/actions/workflows/ci.yml/badge.svg)](https://github.com/alvarodc093-pixel/Marketing-AB-Test/actions/workflows/ci.yml) ![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=flat-square&logo=python&logoColor=white) ![SciPy](https://img.shields.io/badge/SciPy-estadística-8CAAE6?style=flat-square&logo=scipy&logoColor=white) ![statsmodels](https://img.shields.io/badge/statsmodels-regresión-4B8BBE?style=flat-square) ![Tests](https://img.shields.io/badge/tests-13-2ea44f?style=flat-square)
+[![CI](https://github.com/alvarodc093-pixel/Marketing-AB-Test/actions/workflows/ci.yml/badge.svg)](https://github.com/alvarodc093-pixel/Marketing-AB-Test/actions/workflows/ci.yml) ![Python](https://img.shields.io/badge/Python-3.13-3776AB?style=flat-square&logo=python&logoColor=white) ![SciPy](https://img.shields.io/badge/SciPy-estadística-8CAAE6?style=flat-square&logo=scipy&logoColor=white) ![statsmodels](https://img.shields.io/badge/statsmodels-regresión-4B8BBE?style=flat-square) ![Tests](https://img.shields.io/badge/tests-14-2ea44f?style=flat-square)
 
 ![Efecto por impresiones](docs/img/efecto_por_impresiones.png)
 
@@ -55,7 +55,7 @@ El [notebook](analisis.ipynb) sigue los pasos de un análisis de experimento rea
 ├── ab/
 │   ├── estadistica.py      # test z, IC, bootstrap, bayesiano, potencia, tamaño muestral, Holm
 │   └── datos.py            # descarga, limpieza y efecto por segmento
-├── tests/                  # 13 tests: cada función comparada con statsmodels o scipy
+├── tests/                  # 14 tests: cada función comparada con statsmodels o scipy
 └── docs/img/               # gráficos
 ```
 
@@ -80,4 +80,4 @@ Datos: [Marketing A/B Testing](https://www.kaggle.com/datasets/faviovaz/marketin
 
 ## English summary
 
-Analysis of a marketing A/B test with 588k users (96 % saw ads, 4 % saw a public service announcement). Ads raise conversion from 1.79 % to 2.55 %, a +43 % lift with a 95 % CI of +30 % to +58 %. The z-test, bootstrap and Bayesian analysis all agree, and the result holds after adjusting for a small group imbalance with stratification and logistic regression. Only ~30 % of the ad group's purchases are incremental. The effect appears only for users with 25+ impressions, while the 72 % of users below that threshold do not respond. Break-even CPM is ~0.31 × margin per purchase. The statistical functions are hand-written and checked against statsmodels in 13 tests.
+Analysis of a marketing A/B test with 588k users (96 % saw ads, 4 % saw a public service announcement). Ads raise conversion from 1.79 % to 2.55 %, a +43 % lift with a 95 % CI of +30 % to +58 %. The z-test, bootstrap and Bayesian analysis all agree, and the result holds after adjusting for a small group imbalance with stratification and logistic regression. Only ~30 % of the ad group's purchases are incremental. The effect appears only for users with 25+ impressions, while the 72 % of users below that threshold do not respond. Break-even CPM is ~0.31 × margin per purchase. The statistical functions are hand-written and checked against statsmodels in 14 tests.

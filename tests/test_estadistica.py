@@ -117,6 +117,17 @@ def test_efecto_por_segmento():
     assert t["pct_usuarios"].sum() == pytest.approx(1)
 
 
+def test_segmento_con_un_solo_grupo_se_omite():
+    df = pd.DataFrame({
+        "grupo": ["control"] * 100 + ["anuncios"] * 100 + ["anuncios"] * 50,
+        "convertido": ([1] * 10 + [0] * 90) * 2 + [1] * 5 + [0] * 45,
+        "segmento": ["x"] * 200 + ["solo_anuncios"] * 50,
+    })
+    t = efecto_por_segmento(df, "segmento")
+    assert t["segmento"].tolist() == ["x"]
+    assert t["p_holm"].iloc[0] == pytest.approx(t["p_valor"].iloc[0])
+
+
 def test_chi2_igual_que_scipy():
     obs = [23_524, 564_577]
     assert prueba_srm(obs, [4, 96]) == pytest.approx(

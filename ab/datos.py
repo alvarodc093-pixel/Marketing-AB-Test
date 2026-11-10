@@ -57,9 +57,15 @@ def grupos(df: pd.DataFrame) -> tuple[Grupo, Grupo]:
 
 
 def efecto_por_segmento(df: pd.DataFrame, columna: str) -> pd.DataFrame:
-    """Tasa de cada grupo, lift, IC y p-valor (bruto y ajustado por Holm) en cada segmento."""
+    """Tasa de cada grupo, lift, IC y p-valor (bruto y ajustado por Holm) en cada segmento.
+
+    Un segmento sin usuarios de alguno de los dos grupos no se puede comparar: se omite
+    (y no cuenta en la corrección de Holm).
+    """
     filas = []
     for valor, sub in df.groupby(columna, observed=True):
+        if sub["grupo"].nunique() < 2:
+            continue
         a, b = grupos(sub)
         r = prueba_z(a, b)
         filas.append({
